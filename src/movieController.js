@@ -5,7 +5,7 @@ export const home = (req, res) =>
 
 export const movieDetail = (req, res) => {
   const {
-    params: { id }
+    params: { id },
   } = req;
   const movie = getMovieById(id);
   if (!movie) {
@@ -18,3 +18,11 @@ export const movieDetail = (req, res) => {
 Write the controller or controllers you need to render the form
 and to handle the submission
 */
+
+export const getAddMovie = (req, res) => {
+  res.render("add", { pageTitle: "Add" });
+};
+
+export const postAddMovie = (req, res) => {
+  res.redirect("movies", { pageTitle: "Movies!" });
+};

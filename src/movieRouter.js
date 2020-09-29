@@ -1,5 +1,10 @@
 import express from "express";
-import { home, movieDetail } from "./movieController";
+import {
+  getAddMovie,
+  home,
+  movieDetail,
+  postAddMovie,
+} from "./movieController";
 
 const movieRouter = express.Router();
 
@@ -10,5 +15,8 @@ Make sure is ABOVE /:id or it WON'T work.
 */
 
 movieRouter.get("/:id", movieDetail);
+
+movieRouter.get("/add", getAddMovie);
+movieRouter.post("/add", postAddMovie);
 
 export default movieRouter;
