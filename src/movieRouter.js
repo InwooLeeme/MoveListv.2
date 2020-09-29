@@ -13,10 +13,9 @@ movieRouter.get("/", home);
 Here add a way to handle GET and POST requests to the "/add" URL
 Make sure is ABOVE /:id or it WON'T work.
 */
-
-movieRouter.get("/:id", movieDetail);
-
 movieRouter.get("/add", getAddMovie);
 movieRouter.post("/add", postAddMovie);
+
+movieRouter.get("/:id", movieDetail);
 
 export default movieRouter;

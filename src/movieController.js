@@ -19,10 +19,18 @@ Write the controller or controllers you need to render the form
 and to handle the submission
 */
 
-export const getAddMovie = (req, res) => {
+export const getAddMovie = (req, res) =>
   res.render("add", { pageTitle: "Add" });
-};
 
 export const postAddMovie = (req, res) => {
-  res.redirect("movies", { pageTitle: "Movies!" });
+  //console.log(req);
+  const {
+    body: { title, synopsis, genres: genre },
+  } = req;
+  const genres = genre.split(",");
+  const movie = { title, synopsis, genres };
+  addMovie(movie);
+  console.log(movie);
+  console.log(genres);
+  res.render("movies", { movies: getMovies(), pageTitle: "Movies!" });
 };
